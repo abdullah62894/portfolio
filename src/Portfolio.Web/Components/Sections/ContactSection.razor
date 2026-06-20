@@ -1,0 +1,94 @@
+<section class="contact-section section" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <RadzenBadge Variant="Variant.Flat" class="section-label">Get In Touch</RadzenBadge>
+            <h2 class="section-title">Let's Modernize <span class="gradient-text">Together</span></h2>
+            <p class="section-subtitle">Have a modernization project in mind? Let's discuss how I can help.</p>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-info">
+                <RadzenCard Variant="Variant.Flat" style="background: transparent; border: none; padding: 0;">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">&#64;</div>
+                        <div class="contact-item-content">
+                            <div class="contact-item-label">Email</div>
+                            <div class="contact-item-value">
+                                <a href="mailto:abdullahhammad14@gmail.com">abdullahhammad14@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </RadzenCard>
+
+                <RadzenCard Variant="Variant.Flat" style="background: transparent; border: none; padding: 0;">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">in</div>
+                        <div class="contact-item-content">
+                            <div class="contact-item-label">LinkedIn</div>
+                            <div class="contact-item-value">
+                                <a href="https://www.linkedin.com/in/abdullahhammad14/" target="_blank" rel="noopener">
+                                    linkedin.com/in/abdullahhammad14
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </RadzenCard>
+
+                <RadzenCard Variant="Variant.Flat" style="background: transparent; border: none; padding: 0;">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">&#9906;</div>
+                        <div class="contact-item-content">
+                            <div class="contact-item-label">Location</div>
+                            <div class="contact-item-value">
+                                <div class="contact-location-value">
+                                    Pakistan
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">
+                                        (Available for remote worldwide)
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </RadzenCard>
+            </div>
+
+            <div class="contact-actions">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Large"
+                              onclick="@OpenEmail">
+                    Email Me
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.Large"
+                              onclick="@OpenLinkedIn">
+                    LinkedIn
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Base" Size="ButtonSize.Large"
+                              class="contact-btn-outline"
+                              onclick="@DownloadResume">
+                    Download Resume
+                </RadzenButton>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@code {
+    [Inject] private IJSRuntime JSRuntime { get; set; } = null!;
+
+    private async Task OpenEmail()
+    {
+        await JSRuntime.InvokeVoidAsync("openEmail");
+    }
+
+    private async Task OpenLinkedIn()
+    {
+        await JSRuntime.InvokeVoidAsync("openLinkedIn");
+    }
+
+    private async Task DownloadResume()
+    {
+        await JSRuntime.InvokeVoidAsync("downloadResume");
+    }
+}

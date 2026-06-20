@@ -1,0 +1,30 @@
+@inherits LayoutComponentBase
+
+<div class="app-container">
+
+    <NavMenu />
+
+    <main class="main-content">
+        <div class="sections-container">
+            @Body
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">&lt;/&gt;</span>
+                    <span class="footer-name">Abdullah Hammad</span>
+                </div>
+                <div class="footer-tagline">
+                    Enterprise .NET Modernization Engineer
+                </div>
+                <div class="footer-copy">
+                    &copy; @DateTime.Now.Year. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>

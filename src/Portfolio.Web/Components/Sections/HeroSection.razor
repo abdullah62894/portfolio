@@ -1,0 +1,68 @@
+<section class="hero-section" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-bg-gradient"></div>
+
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Available for enterprise opportunities
+            </div>
+
+            <h1 class="hero-title">
+                <span class="hero-title-line">Hi, I'm</span>
+                <span class="hero-title-accent">Abdullah Hammad</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                Helping organizations modernize legacy enterprise systems and migrate from .NET Framework to scalable modern .NET architectures.
+            </p>
+
+            <div class="hero-actions">
+                <RadzenButton ButtonType="ButtonType.Button" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Large" class="hero-btn-primary" onclick="@ScrollToProjects">
+                    View Projects
+                </RadzenButton>
+                <RadzenButton ButtonType="ButtonType.Button" ButtonStyle="ButtonStyle.Secondary" Size="ButtonSize.Large" onclick="@DownloadResume">
+                    Download Resume
+                </RadzenButton>
+                <RadzenButton ButtonType="ButtonType.Button" ButtonStyle="ButtonStyle.Base" Size="ButtonSize.Large" class="hero-btn-outline" onclick="@ScrollToContact">
+                    Contact Me
+                </RadzenButton>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value hero-stat-accent">4+</div>
+                    <div class="hero-stat-label">Years Experience</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">3</div>
+                    <div class="hero-stat-label">Enterprise Projects</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value hero-stat-accent">.NET 9</div>
+                    <div class="hero-stat-label">Latest Tech Stack</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    [Inject] private IJSRuntime JSRuntime { get; set; } = null!;
+
+    private async Task ScrollToProjects()
+    {
+        await JSRuntime.InvokeVoidAsync("scrollToSection", "projects");
+    }
+
+    private async Task ScrollToContact()
+    {
+        await JSRuntime.InvokeVoidAsync("scrollToSection", "contact");
+    }
+
+    private async Task DownloadResume()
+    {
+        await JSRuntime.InvokeVoidAsync("downloadResume");
+    }
+}

@@ -1,0 +1,43 @@
+<nav class="navbar" id="navbar">
+    <div class="container navbar-inner">
+        <a class="navbar-brand" href="#hero">
+            <span class="brand-bracket">&lt;</span>
+            <span class="brand-slash">/</span>
+            <span class="brand-bracket">&gt;</span>
+            <span class="brand-text">Abdullah Hammad</span>
+        </a>
+
+        <button class="navbar-toggler" @onclick="ToggleMenu" aria-label="Toggle navigation menu">
+            <span class="toggler-bar"></span>
+            <span class="toggler-bar"></span>
+            <span class="toggler-bar"></span>
+        </button>
+
+        <div class="navbar-menu @GetMenuClass()" @onclick="CloseMenu">
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#skills">Skills</a>
+            <a class="nav-link" href="#experience">Experience</a>
+            <a class="nav-link" href="#projects">Projects</a>
+            <a class="nav-link" href="#signature">Signature</a>
+            <a class="nav-link" href="#github">GitHub</a>
+            <a class="nav-link" href="#articles">Articles</a>
+            <a class="nav-link nav-link-highlight" href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private bool _menuOpen;
+
+    private string GetMenuClass() => _menuOpen ? "open" : "";
+
+    private void ToggleMenu()
+    {
+        _menuOpen = !_menuOpen;
+    }
+
+    private void CloseMenu()
+    {
+        _menuOpen = false;
+    }
+}

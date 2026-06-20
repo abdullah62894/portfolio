@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Title>Abdullah Hammad - Enterprise .NET Modernization Engineer</Title>
+    <Description>Personal portfolio of Abdullah Hammad, a .NET Backend Engineer specializing in enterprise software modernization and legacy system migration.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" PrivateAssets="all" />
+    <PackageReference Include="Radzen.Blazor" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>
