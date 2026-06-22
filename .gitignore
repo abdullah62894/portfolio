@@ -6,6 +6,7 @@ publish/
 *.suo
 *.userprefs
 *.DotSettings.user
+*.log
 
 ## Build results
 [Dd]ebug/
@@ -42,3 +43,4 @@ bld/
 ## OS
 .DS_Store
 Thumbs.db
+
