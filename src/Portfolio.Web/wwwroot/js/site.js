@@ -12,9 +12,12 @@ window.scrollToSection = function (sectionId) {
 
 // --- Download resume ---
 window.downloadResume = function () {
-    // Placeholder - replace with actual resume URL when available
-    // window.open('/files/abdullah_hammad_resume.pdf', '_blank');
-    alert('Resume download will be available soon. Please contact me via email for a copy.');
+    const link = document.createElement('a');
+    link.href = 'assets/Abdullah Hammad - Optimized Cv.pdf';
+    link.download = 'Abdullah Hammad - Optimized Cv.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 };
 
 // --- Open email client ---
@@ -27,19 +30,8 @@ window.openLinkedIn = function () {
     window.open('https://www.linkedin.com/in/abdullahhammad14/', '_blank', 'noopener');
 };
 
-// --- Navbar scroll effect ---
-document.addEventListener('DOMContentLoaded', function () {
-    const navbar = document.getElementById('navbar');
-
-    window.addEventListener('scroll', function () {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // --- Intersection Observer for reveal animations ---
+// --- Initialize portfolio animations ---
+window.initPortfolio = function () {
     const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
 
     const observer = new IntersectionObserver(
@@ -56,12 +48,22 @@ document.addEventListener('DOMContentLoaded', function () {
     revealElements.forEach(function (el) {
         observer.observe(el);
     });
+};
 
-    // --- Active nav link highlighting ---
+// --- Scroll listener (Navbar scrolled class & active navigation link) ---
+window.addEventListener('scroll', function () {
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+
     const sections = document.querySelectorAll('.section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', function () {
+    if (sections.length > 0 && navLinks.length > 0) {
         let current = '';
         sections.forEach(function (section) {
             const top = section.offsetTop - 120;
@@ -76,5 +78,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 link.classList.add('active');
             }
         });
-    });
+    }
+});
+
+// Fallback init on DOM content load
+document.addEventListener('DOMContentLoaded', function () {
+    window.initPortfolio();
 });

@@ -1,5 +1,6 @@
 @page "/"
 @layout MainLayout
+@inject IJSRuntime JSRuntime
 
 <HeroSection />
 <AboutSection />
@@ -10,3 +11,13 @@
 <GithubSection />
 <ArticlesSection />
 <ContactSection />
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initPortfolio");
+        }
+    }
+}
